@@ -1,0 +1,19 @@
+CC=gcc
+CFLAGS=-O2 -Wall
+
+all: engine memory_hog cpu_hog io_pulse
+
+engine: engine.c
+	$(CC) $(CFLAGS) -o engine engine.c
+
+memory_hog: memory_hog.c
+	$(CC) $(CFLAGS) -static -o memory_hog memory_hog.c
+
+cpu_hog: cpu_hog.c
+	$(CC) $(CFLAGS) -static -o cpu_hog cpu_hog.c
+
+io_pulse: io_pulse.c
+	$(CC) $(CFLAGS) -static -o io_pulse io_pulse.c
+
+clean:
+	rm -f engine memory_hog cpu_hog io_pulse
